@@ -12,6 +12,7 @@ public class Connect {
     private final static String PASSWORD = "1234"; //비밀번호
     // 데이터 베이스의 위치정보 (DB URL) - DB회사마다 패턴이 다름
     private final static String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+    //192.168.25.198 서로 공유되는것
     //구글에 oracle xe 11g jdbc url 검색
     // https://docs.oracle.com/cd/E17781_01/appdev.112/e18805/getconn.htm#TDPJD127 들어가면
     // jdbc:oracle:driver_type:[username/password]@//host_name:port_number:SID

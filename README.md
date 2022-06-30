@@ -16,4 +16,29 @@
 
 //오라클 라이브러리 (11g edition - gradle, maven 라이센스 문제 공식 지원 불가)
 implementation fileTree(dir: '/src/main/webapp/WEB-INF/lib', include: ['*.jar'])
+
+
 ```
+
+
+
+@Test
+@DisplayName("개인 성적 정보를 수정해야 한다.")
+void modifyTest() {
+
+        // given
+        Score score = repository.findOne(3);
+        score.setKor(90);
+        score.setEng(80);
+        score.setMath(33);
+        score.calc();
+
+        //when
+        boolean result = repository.modify(score);
+
+        //then
+        Score newScore = repository.findOne(3);
+        assertEquals(33, newScore.getMath());
+
+    }
+

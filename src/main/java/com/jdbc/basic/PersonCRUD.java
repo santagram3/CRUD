@@ -68,7 +68,7 @@ public class PersonCRUD {
     public static boolean save(Person p) {
         //  1. SQL 구문을 작성
         String sql = "INSERT INTO PERSON" + "(ssn, person_name, age)" + "VALUES (?,?,?)";
-
+         // sql 구문에는 sql 안에있는것을 넣어야 한다
         try {
             // 2. DB에 접속
             Connection conn = Connect.makeConnection();
