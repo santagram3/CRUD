@@ -1,6 +1,5 @@
 package com.jdbc.basic.blank.domain;
 
-
 import lombok.*;
 
 @Setter
@@ -9,15 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 
-public class Blank {
+public class Players {
 
-
-    private int qnum ;
-    private String texts;
-    private int answer ;
-
-
-
-
+    private String pname;
+    private int onumber;
+    private int plustime;
 
 }
