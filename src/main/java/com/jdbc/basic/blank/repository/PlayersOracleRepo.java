@@ -45,10 +45,6 @@ public class PlayersOracleRepo implements PlayerRepository {
 
         }
 
-
-
-
-
     }
 
     @Override
@@ -56,7 +52,7 @@ public class PlayersOracleRepo implements PlayerRepository {
 
         List<Players> pMap = new ArrayList<>();
 
-        String sql = "SELECT * FROM Players ORDER BY onumber DESC";
+        String sql = "SELECT * FROM Players ORDER BY onumber DESC ,plustime";
         // 오름차 정렬
 
         try (Connection conn = Connect.makeConnection()) {
@@ -88,7 +84,7 @@ public class PlayersOracleRepo implements PlayerRepository {
 
        List<Players> pMap = new ArrayList<>();
 
-        String sql = "SELECT * FROM Players ORDER BY plustime";
+        String sql = "SELECT * FROM Players ORDER BY plustime ,onumber DESC";
         // 오름차 정렬
 
         try (Connection conn = Connect.makeConnection()) {
@@ -115,6 +111,40 @@ public class PlayersOracleRepo implements PlayerRepository {
         }
 
 
+    }
+
+    @Override
+    public Players[] givePlayerTable() {
+        Players[] playerArr = new Players[findAllPlayersNumber().size()];
+
+        String sql = "SELECT * FROM Players ORDER BY plustime";
+
+        try (Connection conn = Connect.makeConnection()) {
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            ResultSet rs = pstmt.executeQuery();
+            int count = 0;
+            while (rs.next()) {
+                Players s = new Players(
+                        rs.getString("PNAME")
+                        , rs.getInt("onumber")
+                        , rs.getInt("plustime")
+
+                );
+                playerArr[count] = s ;
+                count++;
+//                pMap.add(s);
+
+            }
+            return playerArr;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+//            return Collections.emptyArr();
+        }
+        return playerArr;
     }
 
 

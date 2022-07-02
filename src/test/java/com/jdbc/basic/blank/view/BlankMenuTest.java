@@ -11,6 +11,7 @@ class BlankMenuTest {
 
 
 
+
     @Test
     @DisplayName("문제가 나와야 한다 ")
     void printTextTest() {

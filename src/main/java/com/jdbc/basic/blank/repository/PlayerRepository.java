@@ -15,6 +15,7 @@ public interface PlayerRepository {
 
     List<Players> findAllPlayersTime();
 
+    Players[] givePlayerTable();
 
 
 

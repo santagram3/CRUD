@@ -25,6 +25,16 @@ public class PlayerController {
        play.add(players);
        repository.insertPlayer(players);
     }
+    //public Players[]
+    public Players[] givePlayerTable(){
+        Players[] playerList = repository.givePlayerTable();
+        return playerList;
+    }
+
+    public List<Players> givePlayerTable2(){
+       List<Players> PlayerTable = repository.findAllPlayersNumber();
+       return PlayerTable;
+    }
 
    public List<Players> givePlayerNumberTable(){
        List<Players> allPlayersNumber = repository.findAllPlayersNumber();
