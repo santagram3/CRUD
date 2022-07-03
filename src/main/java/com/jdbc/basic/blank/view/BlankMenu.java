@@ -35,7 +35,7 @@ public class BlankMenu {
 
         while (true) {
 
-            System.out.println("\n============공백 빠르게 세기 에 오신걸 환영합니다.==========");
+            System.out.println("\n============내가 스페이스를 몇번 눌렀을까 ? ==========");
 
             System.out.println("# 1. 문제 설명 보기 ");
             System.out.println("# 2. 문제 풀기 ");
@@ -101,10 +101,16 @@ public class BlankMenu {
     // 내 기록 보기
     private void lookMyScore() {
 
+        // 이미 들어가있는 데이터는 검색이 되는데
+        // 새로 들어간 데이터는 검색이 안된다
+        // 갱신된 결과값이 안나옴
         System.out.println("찾고싶은 ID을 적어주세요 ");
         String result = sc.next();
         for (Players players : playerList2) {
+            System.out.println(players);
+            System.out.println("===================");
             if (players.getPname().equals(result)){
+                System.out.println("찾으시는 정보 >> ");
                 System.out.println(players);
                flag = true;
                break;
@@ -133,7 +139,7 @@ public class BlankMenu {
 
 
     public void printText() {
-        System.out.println("당신의 이름은 ? ");
+        System.out.println("당신의 ID는 ? ");
         String name = sc.next();
         int num = 0;
         long accmulTime = 0;
@@ -147,8 +153,8 @@ public class BlankMenu {
             String texts = blank.getTexts();
             System.out.println("===========================");
             System.out.println(texts);
-
-            System.out.println(">>> 공백의 갯수를 입력하세요 ");
+            System.out.println("===========================");
+            System.out.println("내가 스페이스를 누른 횟수를 입력하세요 ");
             int s = sc.nextInt();
 //            if( s < 0 || !sc.hasNextInt()){
 //                System.out.println("음수를 입력하시거나 , 문자를 입력하셨습니까 ? ");
@@ -181,8 +187,17 @@ public class BlankMenu {
     private void explanation() {
         System.out.println("==================================");
         System.out.println(" 문제는 간단합니다 \n 주어진 문장을 보고 사이의 공백의 갯수를 맞춰주시면 됩니다.");
+        System.out.println("==================================");
         System.out.println("가 나 다 라 마마마");
-        System.out.println("위의 문장에서 공백의 갯수는 4개 입니다");
+        System.out.println("==================================");
+        System.out.println("위의 문장에서 제가 스페이스바를 누른 횟수는 4번 입니다");
+        System.out.println();
+
+        System.out.println("==================================");
+        System.out.println("가  e  e r   q  w마");
+        System.out.println("==================================");
+        System.out.println("위의 문장에서 제가 스페이스바를 누른 횟수는 10번 입니다");
+
         System.out.println("그리고 시간초를 재고 있으니까 빨리 풀어주세요");
     }
 
