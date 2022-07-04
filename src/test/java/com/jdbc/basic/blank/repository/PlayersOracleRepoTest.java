@@ -49,5 +49,13 @@ class PlayersOracleRepoTest {
         assertEquals(2, pMap.size());
     }
 
+    @Test
+    @DisplayName(" 전체 다 나오는 테스트 ")
+    void givePlayerTableTest(){
+        List<Players> players = repository.givePlayerTable();
+        for (Players player : players) {
+            System.out.println(player);
+        }
 
+    }
 }

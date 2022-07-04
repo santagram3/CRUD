@@ -32,7 +32,7 @@ public class PlayerController {
 //    }
 
     public List<Players> givePlayerTable2(){
-       List<Players> PlayerTable = repository.findAllPlayersNumber();
+       List<Players> PlayerTable = repository.givePlayerTable();
        return PlayerTable;
     }
 

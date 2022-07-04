@@ -107,8 +107,7 @@ public class BlankMenu {
         System.out.println("찾고싶은 ID을 적어주세요 ");
         String result = sc.next();
         for (Players players : playerList2) {
-            System.out.println(players);
-            System.out.println("===================");
+//            System.out.println("===================");
             if (players.getPname().equals(result)){
                 System.out.println("찾으시는 정보 >> ");
                 System.out.println(players);
@@ -180,6 +179,7 @@ public class BlankMenu {
         players.setOnumber(count);
         players.setPlustime((int) accmulTime);
 
+        playerList2.add(players);
         playerController.insertList(players);
     }
 

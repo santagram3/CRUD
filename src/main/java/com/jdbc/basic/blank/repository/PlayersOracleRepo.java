@@ -47,6 +47,8 @@ public class PlayersOracleRepo implements PlayerRepository {
 
     }
 
+
+
     @Override
     public List<Players> findAllPlayersNumber() {
 
@@ -114,10 +116,11 @@ public class PlayersOracleRepo implements PlayerRepository {
     }
 
     @Override
-    public Players[] givePlayerTable() {
-        Players[] playerArr = new Players[findAllPlayersNumber().size()];
+    public List<Players> givePlayerTable() {
 
-        String sql = "SELECT * FROM Players ORDER BY plustime";
+        List<Players> allPlayer = new ArrayList<>();
+
+        String sql = "SELECT * FROM Players";
 
         try (Connection conn = Connect.makeConnection()) {
 
@@ -132,19 +135,18 @@ public class PlayersOracleRepo implements PlayerRepository {
                         , rs.getInt("plustime")
 
                 );
-                playerArr[count] = s ;
-                count++;
-//                pMap.add(s);
+              allPlayer.add(s);
+
 
             }
-            return playerArr;
+            return allPlayer;
 
 
         } catch (Exception e) {
             e.printStackTrace();
 //            return Collections.emptyArr();
         }
-        return playerArr;
+        return allPlayer;
     }
 
 
